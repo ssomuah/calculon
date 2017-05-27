@@ -10,5 +10,7 @@ angular.module('myApp.view1', ['ngRoute'])
 }])
 
 .controller('View1Ctrl', [function() {
-
+  if (x==2){
+    y=4
+  }
 }]);
