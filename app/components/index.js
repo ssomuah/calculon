@@ -1,5 +1,8 @@
 'use strict'
 
-var app = require('angular').module('calculatorApp')
+require('./home/home.js')
 
-app.component('homeComponent',require('./home/home.js'))
+angular
+  .module('components', [
+    'components.home'
+  ]);

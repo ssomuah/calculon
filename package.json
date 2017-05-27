@@ -30,7 +30,7 @@
     "build-static": "find app -name '*.html' -exec cp --parents \\{\\} build \\;",
     "watch": "npm run build && npm run watch-js & npm run watch-static & npm run watch-less & npm run start",
     "watchify": "watchify app/app.js -o build/app/assets/bundle.js",
-    "watch-js": "onchange app/**.js -v -- npm run watchify",
+    "watch-js": "onchange 'app/**/*.js' -v -- npm run watchify",
     "watch-less": "onchange app/less/main.less -v -- npm run build-less",
     "watch-static": "onchange app/**.html -v -- npm run build-static",
     "postinstall": "bower install",
