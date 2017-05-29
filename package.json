@@ -1,6 +1,6 @@
 {
     "name": "calculon",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "license": "MIT",
     "devDependencies": {
         "browserify": "^14.3.0",
