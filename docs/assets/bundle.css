@@ -9369,6 +9369,7 @@ a.list-group-item-danger.active:focus {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.15em;
   min-height: 67px;
+  white-space: normal;
 }
 .calc-body {
   margin-top: 150px;
