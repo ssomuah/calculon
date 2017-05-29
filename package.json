@@ -33,7 +33,7 @@
         "watch-js": "onchange 'app/**/*.js' -v -- npm run build-js",
         "watch-less": "onchange app/less/main.less -v -- npm run build-less",
         "watch-static": "onchange 'app/**/*.html' -v -- npm run build-static",
-        "ship-it": "mkdir -p docs && npm run build && cp -r build/app/* docs && mangle",
+        "ship-it": "mkdir -p docs && npm run build && cp -r build/app/* docs && npm run mangle",
         "mangle": "uglifyjs docs/assets/bundle.js -o docs/assets/bundle.js",
         "start": "http-server -a localhost -p 8000 -c-1 ./build/app"
     },
