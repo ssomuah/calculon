@@ -9378,6 +9378,7 @@ a.list-group-item-danger.active:focus {
   background-color: #000000;
   color: #39FF14;
   text-align: right;
+  font-size: 2em;
 }
 .calc-display:read-only {
   background-color: #000000;
