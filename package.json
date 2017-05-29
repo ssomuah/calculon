@@ -16,14 +16,15 @@
         "onchange": "^3.2.1",
         "protractor": "^4.0.9",
         "standard": "^10.0.2",
+        "uglify-js": "^3.0.13",
         "watchify": "^3.9.0"
     },
     "scripts": {
         "comment": "",
         "clean": "rm -rf build && rm -rf dist && rm -rf docs",
-        "lint": "standard app/**/app.js",
+        "lint": "standard 'app/**/*.js'",
         "build": "mkdir -p build/app/assets && npm run build-js &&  npm run build-less && npm run build-static",
-        "build-js": "browserify app/app.js -o build/app/assets/bundle.js",
+        "build-js": "npm run lint && browserify app/app.js -o build/app/assets/bundle.js",
         "build-less": "lessc app/less/main.less build/app/assets/bundle.css",
         "build-html": "find app -name '*.html' -exec cp --parents \\{\\} build \\;",
         "build-static": "npm run build-html & npm run build-fonts",
@@ -32,7 +33,8 @@
         "watch-js": "onchange 'app/**/*.js' -v -- npm run build-js",
         "watch-less": "onchange app/less/main.less -v -- npm run build-less",
         "watch-static": "onchange 'app/**/*.html' -v -- npm run build-static",
-        "ship-it": "mkdir -p docs && npm run build && cp -r build/app/* docs",
+        "ship-it": "mkdir -p docs && npm run build && cp -r build/app/* docs && mangle",
+        "mangle": "uglifyjs docs/assets/bundle.js -o docs/assets/bundle.js",
         "start": "http-server -a localhost -p 8000 -c-1 ./build/app"
     },
     "dependencies": {
