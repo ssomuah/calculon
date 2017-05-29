@@ -29,17 +29,17 @@
                 </div>
                 <div class="row calc-row">
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block">
-                            x<sup>2</sup>
-                        </button>
-                    </div>
-                    <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block">
+                        <button class="btn btn-default calc-btn btn-block" ng-click="$ctrl.calculon.operator('^')"> 
                             x<sup>y</sup>
                         </button>
                     </div>
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block">
+                        <button class="btn btn-default calc-btn btn-block" ng-show="false"> 
+                            ?
+                        </button>
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-default calc-btn btn-block" ng-show="false">
                             ?
                         </button>
                     </div>

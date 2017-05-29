@@ -17,6 +17,10 @@ angular.module('MathGuy', [])
         var haveOperator = false;
         var data = { value: 0, sci: false }
         var currentVal =''
+        var leftDone = false;
+        var haveRight = false;
+        var allowDecimal = true
+
 
         var clear = function clear() {
             data.value = 0;
@@ -25,6 +29,9 @@ angular.module('MathGuy', [])
             l=''
             r=''
             ans=0
+            haveRight = false;
+            allowDecimal = true;
+            leftDone = false;
         }
         var isSci = function isSci() {
             return data.sci
@@ -34,10 +41,11 @@ angular.module('MathGuy', [])
             if (data.sci) {
                 expression+=d.toString()
             } else {
-                if(haveOperator){
+                if(leftDone){
                     r+=d.toString()
                     r=r.toLocaleString()
                     data.value = r
+                    haveRight = true
                 }
                 else{
                     l+=d.toString()
@@ -51,18 +59,19 @@ angular.module('MathGuy', [])
 
 
         var operator = function operator(o) {
-            if(haveOperator){
+            if(haveRight){
                 equals()
                 perform = o;
             }else{
                 perform = o;
-                haveOperator = true;
             }
+            allowDecimal = true;
+            leftDone = true
 
         }
         var equals = function equals(){
             evaluate()
-            haveOperator=false;
+            haveRight=false;
 
         }
         var evaluate = function evaluate(){
@@ -91,17 +100,18 @@ angular.module('MathGuy', [])
         }
 
         var decimal = function(){
-            if(data.sci && currentvalue.indexOf('.')==-1){
+            if(data.sci && currentval.indexOf('.')==-1){
                 expression+='.'
             }else{
-                if(!haveOperator && l.indexOf('.')==-1){
+                if(!leftDone && allowDecimal){
                 l+='.'
                 data.value=l
                 }
-                else if (haveOperator && r.indexOf('.')==-1){
+                else if (leftDone && allowDecimal){
                     r+='.'
                     data.value=r
                 }
+                allowDecimal = false;
             }
             
         }
