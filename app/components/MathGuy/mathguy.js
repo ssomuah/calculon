@@ -69,6 +69,9 @@ angular.module('MathGuy', [])
           data.value = expression
           currentVal = ''
         } else {
+          if (l === '') {
+            return
+          }
           if (haveRight) {
             equals()
             perform = o
