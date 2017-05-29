@@ -17,12 +17,12 @@
                         </button>
                     </div>
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block" ng-show="$ctrl.calculon.data.sci">
+                        <button class="btn btn-default calc-btn btn-block" ng-show="$ctrl.calculon.data.sci" ng-click="$ctrl.calculon.paren('(')">
                             (
                         </button>
                     </div>
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block" ng-show="$ctrl.calculon.data.sci">
+                        <button class="btn btn-default calc-btn btn-block" ng-show="$ctrl.calculon.data.sci" ng-click="$ctrl.calculon.paren(')')">
                             )
                         </button>
                     </div>
@@ -66,7 +66,7 @@
                         </button>
                     </div>
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block" ng-click="$ctrl.calculon.operator('/')">
+                        <button class="btn btn-default calc-btn btn-block" ng-click="$ctrl.calculon.operator('÷')">
                             ÷  
                         </button>
                     </div>
@@ -132,7 +132,7 @@
                         </button>
                     </div>
                     <div class="col-xs-3">
-                        <button class="btn btn-default calc-btn btn-block" ng-click="$ctrl.calculon.operator('+')" >
+                        <button class="btn btn-default calc-btn btn-block" ng-click="$ctrl.calculon.operator('+')">
                             +  
                         </button>
                     </div>
