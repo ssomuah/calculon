@@ -24,7 +24,6 @@ angular.module('MathGuy', [])
       var ans = 0
       var perform = ''
       var expression = ''
-      var haveOperator = false
       var data = { value: 0, sci: false }
       var currentVal = ''
       var leftDone = false
@@ -33,7 +32,6 @@ angular.module('MathGuy', [])
 
       var clear = function clear () {
         data.value = 0
-        haveOperator = false
         expression = ''
         l = ''
         r = ''
@@ -120,8 +118,8 @@ angular.module('MathGuy', [])
 
       var decimal = function () {
         if (data.sci) {
-          if (currentVal.indexOf('.') == -1) {
-            if (currentVal == '') {
+          if (currentVal.indexOf('.') === -1) {
+            if (currentVal === '') {
               expression += '0'
             }
             expression += '.'
@@ -164,21 +162,21 @@ angular.module('MathGuy', [])
             kind = numnum
           }
 
-          if (kind == numnum) {
+          if (kind === numnum) {
             output.push(val)
           } else if (t in arithmetic) {
             o = operators[operators.length - 1]
-            while (o in arithmetic && ((assoc[t] == left && prec[t] <= prec[o]) || (assoc[t] == right && prec[t] < prec[o]))) {
+            while (o in arithmetic && ((assoc[t] === left && prec[t] <= prec[o]) || (assoc[t] === right && prec[t] < prec[o]))) {
               output.push(operators.pop())
               o = operators[operators.length - 1]
             }
 
             operators.push(t)
-          } else if (t == lp) {
+          } else if (t === lp) {
             operators.push(t)
-          } else if (t == rp) {
+          } else if (t === rp) {
             o = operators[operators.length - 1]
-            while (o != lp) {
+            while (o !== lp) {
               output.push(operators.pop())
               o = operators[operators.length - 1]
             }
@@ -205,15 +203,15 @@ angular.module('MathGuy', [])
           } else {
             r1 = stack.pop()
             l1 = stack.pop()
-            if (t == plus) {
+            if (t === plus) {
               stack.push(l1 + r1)
-            } else if (t == minus) {
+            } else if (t === minus) {
               stack.push(l1 - r1)
-            } else if (t == mult) {
+            } else if (t === mult) {
               stack.push(l1 * r1)
-            } else if (t == exp) {
+            } else if (t === exp) {
               stack.push(Math.pow(l1, r1))
-            } else if (t == div) {
+            } else if (t === div) {
               stack.push(l1 / r1)
             } else {
                         // some token we don't know about
