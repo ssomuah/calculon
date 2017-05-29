@@ -1,9 +1,6 @@
 {
-    "name": "angular-seed",
-    "private": true,
-    "version": "0.0.0",
-    "description": "A starter project for AngularJS",
-    "repository": "https://github.com/angular/angular-seed",
+    "name": "calculon",
+    "version": "0.0.1",
     "license": "MIT",
     "devDependencies": {
         "browserify": "^14.3.0",
@@ -22,7 +19,7 @@
         "watchify": "^3.9.0"
     },
     "scripts": {
-        "comment": "  #on build make a new directory called build ",
+        "comment": "",
         "clean": "rm -rf build && rm -rf dist && rm -rf docs",
         "lint": "standard app/**/app.js",
         "build": "mkdir -p build/app/assets && npm run build-js &&  npm run build-less && npm run build-static",
@@ -35,7 +32,8 @@
         "watch-js": "onchange 'app/**/*.js' -v -- npm run build-js",
         "watch-less": "onchange app/less/main.less -v -- npm run build-less",
         "watch-static": "onchange 'app/**/*.html' -v -- npm run build-static",
-        "ship-it": "mkdir docs && npm run build && cp -r build/app/* docs"
+        "ship-it": "mkdir -p docs && npm run build && cp -r build/app/* docs",
+        "start": "http-server -a localhost -p 8000 -c-1 ./build/app"
     },
     "dependencies": {
         "angular": "^1.6.4",

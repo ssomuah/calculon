@@ -3,9 +3,6 @@
 var angular = require('angular')
 
 angular.module('MathGuy', [])
-    .config(function() {
-        console.log('abide')
-    })
     .service("dude", function() {
         //HBD get set paradigm is annoying
         //still should be possible without object

@@ -4,7 +4,6 @@ var angular = require('angular')
 angular
     .module('components.home', ['MathGuy'])
     .config(function homeconf($stateProvider, ) {
-        console.log('fig newton')
         $stateProvider.state('home', {
             url: '/home',
             component: "homeComponent"
@@ -15,14 +14,5 @@ angular
         controller: function(dude) {
             var ctrl = this
             ctrl.calculon = dude
-            ctrl.calculon.testy('top')
-            dude.testy('kek')
-            ctrl.sci = false
-            ctrl.display = "1337"
-
-            ctrl.toggleSci = function toggleSci() {
-                ctrl.calculon.toggleSci()
-                ctrl.sci = dude.isSci()
-            }
         }
     })
