@@ -1,5 +1,4 @@
 'use strict'
-// template = require('./home.tpl.html')
 var angular = require('angular')
 angular
     .module('components.home', ['MathGuy'])
